@@ -46,3 +46,27 @@ let highscores = [
   },
 ]
 
+function StartQuiz(quiz, highscores){
+  let yourscore = 0
+  let userName = readlineSync.question("Whats your name? ");
+  console.log("Welcome "+ userName + ", to a quiz about how well you know me");
+  for(let i=0; i < quiz.length; i++){
+    let ans = readlineSync.question(quiz[i].question);
+    if(ans.toUpperCase() === quiz[i].answer.toUpperCase()){
+      yourscore=yourscore+2;
+      console.log("correct answer!! your score: ",yourscore);
+    }
+    else{
+      yourscore=yourscore-2;
+      console.log("wrong answer!! your score: ",yourscore);
+    }
+  }
+  for(let j=0; j < highscores.length; j++){
+    if(highscores[j].score < yourscore){
+      console.log("HIGHSCORE !!");
+      return console.log("send a screenshot to be added to the leaderboard score: ", yourscore);
+    }
+  }
+}
+
+StartQuiz(quiz, highscores);
