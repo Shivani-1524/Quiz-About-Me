@@ -1,4 +1,5 @@
 let readlineSync = require("readline-sync");
+const chalk = require('chalk');
 
 let quiz = [
   {
@@ -38,11 +39,11 @@ let quiz = [
 let highscores = [
   {
     name: "random1",
-    score: 14
+    score: 2
   },
   {
     name: "random2",
-    score: 16
+    score: 2
   },
 ]
 
@@ -54,19 +55,21 @@ function StartQuiz(quiz, highscores){
     let ans = readlineSync.question(quiz[i].question);
     if(ans.toUpperCase() === quiz[i].answer.toUpperCase()){
       yourscore=yourscore+2;
-      console.log("correct answer!! your score: ",yourscore);
+      console.log(chalk.greenBright.bold("correct answer!! your score: ",yourscore));
     }
     else{
-      yourscore=yourscore-2;
-      console.log("wrong answer!! your score: ",yourscore);
+      // yourscore=yourscore-2;
+      console.log(chalk.redBright.bold("wrong answer!! your score: ",yourscore));
     }
   }
   for(let j=0; j < highscores.length; j++){
     if(highscores[j].score < yourscore){
-      console.log("HIGHSCORE !!");
-      return console.log("send a screenshot to be added to the leaderboard score: ", yourscore);
+      console.log(chalk.cyanBright.bgYellow.bold.underline("HIGHSCORE !!"));
+      return console.log(chalk.blueBright.bold.italic("send a screenshot to be added to the leaderboard. YOUR SCORE: ", yourscore));
     }
   }
+
+ 
 }
 
 StartQuiz(quiz, highscores);
