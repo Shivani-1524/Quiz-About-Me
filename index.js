@@ -50,7 +50,7 @@ let highscores = [
 function StartQuiz(){
   let yourscore = 0
   let userName = readlineSync.question("Whats your name? ");
-  console.log("Welcome "+ userName + ", to a quiz about how well you know me");
+  console.log("Welcome "+ userName + ", to a quiz on how well you know me");
   console.log(chalk.yellowBright.bold("RULES: +2 => right answer AND -1 => wrong answer"))
   for(let i=0; i < quiz.length; i++){
     let ans = readlineSync.question(quiz[i].question);
