@@ -43,7 +43,7 @@ let highscores = [
   },
   {
     name: "random2",
-    score: 12
+    score: 13
   },
 ]
 
@@ -69,7 +69,7 @@ function StartQuiz(){
 
   for(let j=0; j < highscores.length; j++){
     if(highscores[j].score < yourscore){
-      console.log(chalk.cyanBright.bgYellow.bold.underline("ITS A HIGHSCORE !! ", userName));
+      console.log(chalk.cyanBright.bgYellow.bold.underline("ITS A HIGHSCORE !! congratulations ", userName));
       return console.log(chalk.blueBright.bold.italic("send a screenshot to be added to the leaderboard"));
     }
   }
