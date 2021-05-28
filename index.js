@@ -39,11 +39,11 @@ let quiz = [
 let highscores = [
   {
     name: "random1",
-    score: 2
+    score: 14
   },
   {
     name: "random2",
-    score: 2
+    score: 16
   },
 ]
 
@@ -58,8 +58,9 @@ function StartQuiz(quiz, highscores){
       console.log(chalk.greenBright.bold("correct answer!! your score: ",yourscore));
     }
     else{
-      // yourscore=yourscore-2;
+      yourscore=yourscore-2;
       console.log(chalk.redBright.bold("wrong answer!! your score: ",yourscore));
+      
     }
   }
   for(let j=0; j < highscores.length; j++){
