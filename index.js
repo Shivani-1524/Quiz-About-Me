@@ -39,18 +39,19 @@ let quiz = [
 let highscores = [
   {
     name: "random1",
-    score: 14
+    score: 10
   },
   {
     name: "random2",
-    score: 16
+    score: 12
   },
 ]
 
-function StartQuiz(quiz, highscores){
+function StartQuiz(){
   let yourscore = 0
   let userName = readlineSync.question("Whats your name? ");
   console.log("Welcome "+ userName + ", to a quiz about how well you know me");
+  console.log(chalk.yellowBright.bold("RULES: +2 => right answer AND -1 => wrong answer"))
   for(let i=0; i < quiz.length; i++){
     let ans = readlineSync.question(quiz[i].question);
     if(ans.toUpperCase() === quiz[i].answer.toUpperCase()){
@@ -58,7 +59,7 @@ function StartQuiz(quiz, highscores){
       console.log(chalk.greenBright.bold("correct answer!! your score: ",yourscore));
     }
     else{
-      yourscore=yourscore-2;
+      yourscore=yourscore-1;
       console.log(chalk.redBright.bold("wrong answer!! your score: ",yourscore));
       console.log(chalk.redBright.bold("the correct answer is: ",quiz[i].answer));
     }
@@ -68,12 +69,10 @@ function StartQuiz(quiz, highscores){
 
   for(let j=0; j < highscores.length; j++){
     if(highscores[j].score < yourscore){
-      console.log(chalk.cyanBright.bgYellow.bold.underline("ITS A HIGHSCORE !!"));
+      console.log(chalk.cyanBright.bgYellow.bold.underline("ITS A HIGHSCORE !! ", userName));
       return console.log(chalk.blueBright.bold.italic("send a screenshot to be added to the leaderboard"));
     }
   }
-
- 
 }
 
-StartQuiz(quiz, highscores);
+StartQuiz();
