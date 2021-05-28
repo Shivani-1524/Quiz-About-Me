@@ -63,10 +63,13 @@ function StartQuiz(quiz, highscores){
       console.log(chalk.redBright.bold("the correct answer is: ",quiz[i].answer));
     }
   }
+
+  console.log(chalk.greenBright.bold("YAY!! FINAL SCORE: ",yourscore));
+
   for(let j=0; j < highscores.length; j++){
     if(highscores[j].score < yourscore){
-      console.log(chalk.cyanBright.bgYellow.bold.underline("HIGHSCORE !!"));
-      return console.log(chalk.blueBright.bold.italic("send a screenshot to be added to the leaderboard. YOUR SCORE: ", yourscore));
+      console.log(chalk.cyanBright.bgYellow.bold.underline("ITS A HIGHSCORE !!"));
+      return console.log(chalk.blueBright.bold.italic("send a screenshot to be added to the leaderboard"));
     }
   }
 
