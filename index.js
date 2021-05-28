@@ -60,7 +60,7 @@ function StartQuiz(quiz, highscores){
     else{
       yourscore=yourscore-2;
       console.log(chalk.redBright.bold("wrong answer!! your score: ",yourscore));
-      
+      console.log(chalk.redBright.bold("the correct answer is: ",quiz[i].answer));
     }
   }
   for(let j=0; j < highscores.length; j++){
